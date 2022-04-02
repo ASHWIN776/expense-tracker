@@ -25,7 +25,7 @@ class MyHomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
@@ -41,6 +41,18 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(4.0),
+              child: Column(
+                children: [
+                  TextField(decoration: InputDecoration(labelText: "Title")),
+                  TextField(decoration: InputDecoration(labelText: "Amount")),
+                  ElevatedButton(onPressed: (){}, child: Text("Add Transaction"))
+                ],
+              ),
+            ),
+          ),
           Column(
             children: transactions.map(
               (t) => Card(
@@ -48,19 +60,22 @@ class MyHomePage extends StatelessWidget {
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 10.0),
-                        padding: EdgeInsets.all(10.0),
-                        color: Colors.blueAccent,
+                        padding: EdgeInsets.all(5.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.blueAccent, width: 2.0)
+                        ),
                         child: Row(
                           children: [
                             Icon(
                               Icons.currency_rupee,
-                              color: Colors.white,
+                              color: Colors.blueAccent,
                             ),
                             Text(
-                              "${t.cost}",
+                              t.cost.toStringAsFixed(2),
                               style: TextStyle(
                                   fontSize: 20.0,
-                                  color: Colors.white
+                                  color: Colors.blueAccent,
+                                  fontWeight: FontWeight.bold
                               ),
                             )
                           ],
@@ -91,6 +106,13 @@ class MyHomePage extends StatelessWidget {
           )
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(
+          Icons.add
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
