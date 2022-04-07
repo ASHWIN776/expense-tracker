@@ -1,6 +1,6 @@
 import 'showTransactions.dart';
 import 'package:flutter/material.dart';
-import './models/transaction.dart';
+import '../models/transaction.dart';
 import 'addTransaction.dart';
 
 class UserTransactions extends StatefulWidget {
@@ -38,7 +38,7 @@ class _UserTransactionsState extends State<UserTransactions> {
             ),
           ),
         ),
-        AddTransaction(transactions: _transactions, addTransaction: addTransaction),
+        AddTransaction(addTransaction),
         ShowTransactions(_transactions)
       ],
     );
