@@ -13,9 +13,10 @@ class MyHomePage extends StatelessWidget {
     Transaction(id: 't1', title: 'Sneakers', cost: 1987.4, date: DateTime.now()),
     Transaction(id: 't2', title: 'Chinos', cost: 2019, date: DateTime.now())
   ];
-
   final months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
   "Dec"];
+  String? expenseTitle;
+  String? expenseAmount;
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +47,16 @@ class MyHomePage extends StatelessWidget {
               padding: EdgeInsets.all(4.0),
               child: Column(
                 children: [
-                  TextField(decoration: InputDecoration(labelText: "Title")),
-                  TextField(decoration: InputDecoration(labelText: "Amount")),
-                  ElevatedButton(onPressed: (){}, child: Text("Add Transaction"))
+                  TextField(
+                      decoration: InputDecoration(labelText: "Title"),
+                      onChanged: (val){expenseTitle = val;},
+                  ),
+                  TextField(
+                      decoration: InputDecoration(labelText: "Amount"),
+                      onChanged: (val){expenseAmount = val;},
+
+                  ),
+                  ElevatedButton(onPressed: (){print("Expense Title : $expenseTitle, Expense Amount : $expenseAmount");}, child: Text("Add Transaction"))
                 ],
               ),
             ),
