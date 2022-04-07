@@ -17,12 +17,12 @@ class AddTransaction extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              // controller: TextEditingController(text: ""),
+              controller: TextEditingController(text: ""),
               decoration: InputDecoration(labelText: "Title"),
               onChanged: (val){expenseTitle = val;},
             ),
             TextField(
-              // controller: TextEditingController(text: ""),
+              controller: TextEditingController(text: ""),
               decoration: InputDecoration(labelText: "Amount"),
               onChanged: (val){expenseAmount = val;},
 
