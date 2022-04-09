@@ -18,7 +18,7 @@ class MyHomePage extends StatelessWidget {
         title: Text("Expense Tracker"),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(child: UserTransactions()),
+      body: UserTransactions(),
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
         child: Icon(
