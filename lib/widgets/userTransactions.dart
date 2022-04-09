@@ -15,7 +15,7 @@ class _UserTransactionsState extends State<UserTransactions> {
 
   addTransaction(expenseTitle, expenseAmount, expenseId){
     setState(() {
-      _transactions.add(Transaction(id: expenseId!, title: expenseTitle!, cost: double.parse(expenseAmount!), date: DateTime.now()));
+      _transactions.add(Transaction(id: expenseId!, title: expenseTitle!, cost: expenseAmount!, date: DateTime.now()));
     });
   }
 

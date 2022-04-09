@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import '../models/transaction.dart';
 
 class AddTransaction extends StatelessWidget {
   String? expenseTitle;
-  String? expenseAmount;
+  double? expenseAmount;
   String? expenseId;
   Function addTransaction;
+  final amountController = TextEditingController();
+  final titleController = TextEditingController();
 
   AddTransaction(this.addTransaction);
 
@@ -17,19 +18,19 @@ class AddTransaction extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              controller: TextEditingController(text: ""),
+              controller: titleController,
               decoration: InputDecoration(labelText: "Title"),
-              onChanged: (val){expenseTitle = val;},
             ),
             TextField(
-              controller: TextEditingController(text: ""),
+              controller: amountController,
               decoration: InputDecoration(labelText: "Amount"),
-              onChanged: (val){expenseAmount = val;},
-
             ),
             ElevatedButton(
               onPressed: ()
               {
+                expenseAmount = double.parse(amountController.text);
+                expenseTitle = titleController.text;
+
                 expenseId = DateTime.now().toString();
                 addTransaction(expenseTitle, expenseAmount, expenseId);
                },
