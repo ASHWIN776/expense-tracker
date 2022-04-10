@@ -20,10 +20,12 @@ class AddTransaction extends StatelessWidget {
             TextField(
               controller: titleController,
               decoration: InputDecoration(labelText: "Title"),
+
             ),
             TextField(
               controller: amountController,
               decoration: InputDecoration(labelText: "Amount"),
+              keyboardType: TextInputType.number
             ),
             ElevatedButton(
               onPressed: ()

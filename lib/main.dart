@@ -17,6 +17,9 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Expense Tracker"),
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+        ],
       ),
       body: UserTransactions(),
       floatingActionButton: FloatingActionButton(
